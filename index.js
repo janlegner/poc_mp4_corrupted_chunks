@@ -40,11 +40,11 @@ const main = async () => {
     fewerBytes: Buffer.from(mp4StringWithFewerBytes, 'binary')
   }
 
-  for (const [k, v] of Object.entries(mp4)) {
-    const uncorruptedSize = getUncorruptedSize(v)
-    const fileSize = v.length
-    const uncorruptedFile = getUncorruptedPart(v)
-    console.log(`# ${k}: Uncorrupted size: ${uncorruptedSize}, file size: ${fileSize}`)
+  for (const [testType, testData] of Object.entries(mp4)) {
+    const uncorruptedSize = getUncorruptedSize(testData)
+    const fileSize = testData.length
+    const uncorruptedFile = getUncorruptedPart(testData)
+    console.log(`# ${testType}: Uncorrupted size: ${uncorruptedSize}, file size: ${fileSize}`)
   }
 }
 
